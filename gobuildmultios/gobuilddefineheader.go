@@ -8,4 +8,5 @@ import "github.com/kazekim/golang-test/gobuildmultios/gobuilddefineheader"
 
 func main() {
 	gobuilddefineheader.Print()
+
 }
