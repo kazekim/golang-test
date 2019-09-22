@@ -29,6 +29,6 @@ func main() {
 
 	viper.Set("Config", config)
 
-	username := viper.GetString("Config.Database.Username")
-	fmt.Println(username)
+	c := viper.Get("Config")
+	fmt.Println(c)
 }
