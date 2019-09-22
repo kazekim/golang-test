@@ -35,7 +35,7 @@ beard: false
 		panic(err)
 	}
 
-	name := viper.Get("name") // this would be "steve"
+	name := viper.Get("name") // this would be "Kim"
 
 	fmt.Println(name)
 }

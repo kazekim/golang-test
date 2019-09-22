@@ -12,13 +12,18 @@ import (
 
 func main() {
 
+	os.Setenv("KIM_ID", "18")
+
 	viper.SetEnvPrefix("kim") // will be uppercased automatically
 	viper.BindEnv("id")
 
-	os.Setenv("KIM_ID", "18")
 
 	id := viper.Get("id")
 
 	fmt.Println(id)
+
+	id2 := os.Getenv("KIM_ID")
+
+	fmt.Println(id2)
 
 }
