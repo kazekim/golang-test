@@ -31,4 +31,5 @@ func main() {
 	nickName := viper.Get("NickName")
 
 	fmt.Println(nickName)
+
 }
