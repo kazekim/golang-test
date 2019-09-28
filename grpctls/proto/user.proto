@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package test;
+
+service gUser {
+  rpc GetByID (GetByIDRequest) returns (User);
+}
+
+message GetByIDRequest {
+  uint32 id = 1;
+}
+
+message User {
+  string name = 1;
+  string email = 2;
+  uint32 id = 3;
+}
