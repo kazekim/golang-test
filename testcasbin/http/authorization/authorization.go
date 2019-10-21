@@ -39,6 +39,7 @@ func Authorizer(e *casbin.Enforcer, sessionManager *scs.SessionManager, users mo
 			}
 			// casbin enforce
 			res, err := e.Enforce(role, r.URL.Path, r.Method)
+			
 			if err != nil {
 				writeError(http.StatusInternalServerError, "ERROR", w, err)
 				return
@@ -46,7 +47,7 @@ func Authorizer(e *casbin.Enforcer, sessionManager *scs.SessionManager, users mo
 			if res {
 				next.ServeHTTP(w, r)
 			} else {
-				writeError(http.StatusForbidden, "FORBIDDEN", w, errors.New("unauthorized, or already logged in"))
+				writeError(http.StatusForbidden, "FORBIDDEN", w, errors.New("unauthorized"))
 				return
 			}
 		}

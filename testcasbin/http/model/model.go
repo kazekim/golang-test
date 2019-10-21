@@ -6,7 +6,6 @@ package model
 
 import (
 	"errors"
-	"fmt"
 )
 
 // User is a user
@@ -33,7 +32,6 @@ func (u Users) Exists(id int) bool {
 // FindByName returns the user with the given name, or returns an error
 func (u Users) FindByName(name string) (User, error) {
 	for _, user := range u {
-		fmt.Println(user.Name , " ", name)
 		if user.Name == name {
 			return user, nil
 		}

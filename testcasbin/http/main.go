@@ -78,11 +78,10 @@ func loginHandler(users model.Users) http.HandlerFunc {
 func logoutHandler() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ctx := r.Context()
-		if err := sessionManager.RenewToken(ctx); err != nil {
+		if err := sessionManager.Clear(ctx); err != nil {
 			writeError(http.StatusInternalServerError, "ERROR", w, err)
 			return
 		}
-		sessionManager.Clear(ctx)
 		writeSuccess("SUCCESS", w)
 	})
 }
